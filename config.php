@@ -1,10 +1,10 @@
 <?php $config = array(
     "database_type"=>"mysql",
-    "database_name"=>"IT Management",
+    "database_name"=>"it_management",
     "server"=>"localhost",
-    "username"=>"root",
-    "password"=>"",
+    "username"=>"foxdb",
+    "password"=>"foxdb01",
     "charset"=>"utf8",
-    "port"=>3306,
+    "port"=>3308,
     "encryption_key"=>"1c4fec69b902897a896d5178bf9ebe45fca4e745c9f9d5966a5bf1bbebe80d53",
 	"encryption_iv"=>"48600000c4808e67b71639faceb13134728dacbcd93cb04585f0b11b9ec6d85d" ); ?>

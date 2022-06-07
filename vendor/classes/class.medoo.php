@@ -242,7 +242,7 @@ class medoo
 			}
 		}
 
-		return implode($stack, ',');
+		return implode(',', $stack);
 	}
 
 	protected function array_quote($array)
@@ -254,7 +254,7 @@ class medoo
 			$temp[] = is_int($value) ? $value : $this->pdo->quote($value);
 		}
 
-		return implode($temp, ',');
+		return implode(',', $temp);
 	}
 
 	protected function inner_conjunct($data, $conjunctor, $outer_conjunctor)
@@ -507,7 +507,7 @@ class medoo
 						}
 					}
 
-					$where_clause .= ' ORDER BY ' . implode($stack, ',');
+					$where_clause .= ' ORDER BY ' . implode(',', $stack);
 				}
 				else
 				{
@@ -835,7 +835,7 @@ class medoo
 				}
 			}
 
-			$this->exec('INSERT INTO ' . $this->table_quote($table) . ' (' . implode(', ', $columns) . ') VALUES (' . implode($values, ', ') . ')');
+			$this->exec('INSERT INTO ' . $this->table_quote($table) . ' (' . implode(', ', $columns) . ') VALUES (' . implode(', ', $values) . ')');
 
 			$lastId[] = $this->pdo->lastInsertId();
 		}
