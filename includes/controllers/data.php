@@ -960,7 +960,7 @@ if ($route == "system/import/licensesSample") {
 
 if ($route == "system/settings") {
 	isAuthorized("manageSettings");
-	$emailtemplates = getTable("emailTemplates");
+	// $emailtemplates = getTable("emailTemplates");
 	$languages = getTable("languages");
 	$sdepartments = getTable("tickets_departments");
 	$rules = getTableFiltered("tickets_rules","ticketid","0");

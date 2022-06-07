@@ -469,7 +469,7 @@ class medoo
 
 				if (is_array($MATCH) && isset($MATCH[ 'columns' ], $MATCH[ 'keyword' ]))
 				{
-					$where_clause .= ($where_clause != '' ? ' AND ' : ' WHERE ') . ' MATCH ("' . str_replace('.', '"."', implode($MATCH[ 'columns' ], '", "')) . '") AGAINST (' . $this->quote($MATCH[ 'keyword' ]) . ')';
+					$where_clause .= ($where_clause != '' ? ' AND ' : ' WHERE ') . ' MATCH ("' . str_replace('.', '"."', implode('", "', $MATCH[ 'columns' ])) . '") AGAINST (' . $this->quote($MATCH[ 'keyword' ]) . ')';
 				}
 			}
 
@@ -601,7 +601,7 @@ class medoo
 						// For ['column1', 'column2']
 						if (isset($relation[ 0 ]))
 						{
-							$relation = 'USING ("' . implode($relation, '", "') . '")';
+							$relation = 'USING ("' . implode('", "', $relation) . '")';
 						}
 						else
 						{
@@ -621,7 +621,7 @@ class medoo
 								$this->table_quote(isset($match[ 5 ]) ? $match[ 5 ] : $match[ 3 ]) . '."' . $value . '"';
 							}
 
-							$relation = 'ON ' . implode($joins, ' AND ');
+							$relation = 'ON ' . implode(' AND ', $joins);
 						}
 					}
 
@@ -636,7 +636,7 @@ class medoo
 				}
 			}
 
-			$table_query .= ' ' . implode($table_join, ' ');
+			$table_query .= ' ' . implode(' ', $table_join);
 		}
 		else
 		{
